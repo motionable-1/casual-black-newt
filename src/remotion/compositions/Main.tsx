@@ -1,55 +1,116 @@
-import { AbsoluteFill, Artifact, useCurrentFrame, useVideoConfig } from "remotion";
-import { loadFont } from "@remotion/google-fonts/SpaceMono";
+import { AbsoluteFill, Artifact, useCurrentFrame } from "remotion";
+import {
+  TransitionSeries,
+  springTiming,
+} from "../library/components/layout/Transition";
+import { blurDissolve } from "../library/components/layout/transitions/presentations/blurDissolve";
+import { maskReveal } from "../library/components/layout/transitions/presentations/maskReveal";
+import { zoomIn } from "../library/components/layout/transitions/presentations/zoomIn";
 
-const LoaderDots = () => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+import { Background } from "./scenes/Background";
+import { SceneHero } from "./scenes/SceneHero";
+import { SceneAIContent } from "./scenes/SceneAIContent";
+import { SceneLinkInBio } from "./scenes/SceneLinkInBio";
+import { SceneEmail } from "./scenes/SceneEmail";
+import { SceneDashboard } from "./scenes/SceneDashboard";
+import { SceneCTA } from "./scenes/SceneCTA";
 
-  const dot = (index: number) => {
-    const phase = (frame / fps) * 2 * Math.PI + index * 0.8;
-    return 0.35 + Math.max(0, Math.sin(phase)) * 0.65;
-  };
+// Scene durations (in frames at 30fps)
+const SCENE_HERO = 140;
+const SCENE_AI = 130;
+const SCENE_LINK = 130;
+const SCENE_EMAIL = 130;
+const SCENE_DASHBOARD = 120;
+const SCENE_CTA = 130;
+const TRANSITION = 15;
 
-  return (
-    <span className="inline-flex gap-1">
-      {[0, 1, 2].map((i) => (
-        <span
-          key={i}
-          className="inline-block text-sky-300"
-          style={{ opacity: dot(i) }}
-        >
-          .
-        </span>
-      ))}
-    </span>
-  );
-};
+// Total = sum(scenes) - sum(transitions)
+// 780 - 75 = 705 frames + ~30 buffer = 735
 
 export const Main: React.FC = () => {
-  const { fontFamily } = loadFont();
   const frame = useCurrentFrame();
+
   return (
     <>
-      {/* Leave this here to generate a thumbnail */}
       {frame === 0 && (
         <Artifact content={Artifact.Thumbnail} filename="thumbnail.jpeg" />
       )}
-      <AbsoluteFill className="flex items-center justify-center bg-[#0f1115]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.28),transparent_45%),radial-gradient(circle_at_70%_60%,rgba(16,185,129,0.2),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:48px_48px] opacity-40" />
-        <div
-          className="flex flex-col items-center gap-4 text-center text-white drop-shadow-[0_12px_32px_rgba(0,0,0,0.55)]"
-          style={{ fontFamily, fontWeight: 700, letterSpacing: "0.01em" }}
-        >
-          <div className="text-4xl md:text-5xl font-bold">
-            <span className="font-extrabold text-sky-300">TypeFrames</span> is
-            building your video
-            <LoaderDots />
-          </div>
-          <div className="text-base md:text-lg text-white/70">
-            Rendering scenes, timing transitions, and polishing frames.
-          </div>
-        </div>
+
+      {/* Global background - persists across all scenes */}
+      <AbsoluteFill>
+        <Background />
+      </AbsoluteFill>
+
+      {/* Scene transitions */}
+      <AbsoluteFill>
+        <TransitionSeries>
+          {/* Scene 1: Hero */}
+          <TransitionSeries.Sequence durationInFrames={SCENE_HERO}>
+            <AbsoluteFill>
+              <SceneHero />
+            </AbsoluteFill>
+          </TransitionSeries.Sequence>
+
+          <TransitionSeries.Transition
+            presentation={blurDissolve()}
+            timing={springTiming({ config: { damping: 200 }, durationInFrames: TRANSITION })}
+          />
+
+          {/* Scene 2: AI Content */}
+          <TransitionSeries.Sequence durationInFrames={SCENE_AI}>
+            <AbsoluteFill>
+              <SceneAIContent />
+            </AbsoluteFill>
+          </TransitionSeries.Sequence>
+
+          <TransitionSeries.Transition
+            presentation={maskReveal()}
+            timing={springTiming({ config: { damping: 200 }, durationInFrames: TRANSITION })}
+          />
+
+          {/* Scene 3: Link in Bio */}
+          <TransitionSeries.Sequence durationInFrames={SCENE_LINK}>
+            <AbsoluteFill>
+              <SceneLinkInBio />
+            </AbsoluteFill>
+          </TransitionSeries.Sequence>
+
+          <TransitionSeries.Transition
+            presentation={blurDissolve()}
+            timing={springTiming({ config: { damping: 200 }, durationInFrames: TRANSITION })}
+          />
+
+          {/* Scene 4: Email + Payments */}
+          <TransitionSeries.Sequence durationInFrames={SCENE_EMAIL}>
+            <AbsoluteFill>
+              <SceneEmail />
+            </AbsoluteFill>
+          </TransitionSeries.Sequence>
+
+          <TransitionSeries.Transition
+            presentation={zoomIn()}
+            timing={springTiming({ config: { damping: 200 }, durationInFrames: TRANSITION })}
+          />
+
+          {/* Scene 5: Dashboard */}
+          <TransitionSeries.Sequence durationInFrames={SCENE_DASHBOARD}>
+            <AbsoluteFill>
+              <SceneDashboard />
+            </AbsoluteFill>
+          </TransitionSeries.Sequence>
+
+          <TransitionSeries.Transition
+            presentation={blurDissolve()}
+            timing={springTiming({ config: { damping: 200 }, durationInFrames: TRANSITION })}
+          />
+
+          {/* Scene 6: CTA */}
+          <TransitionSeries.Sequence durationInFrames={SCENE_CTA}>
+            <AbsoluteFill>
+              <SceneCTA />
+            </AbsoluteFill>
+          </TransitionSeries.Sequence>
+        </TransitionSeries>
       </AbsoluteFill>
     </>
   );
