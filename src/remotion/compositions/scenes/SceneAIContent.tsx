@@ -33,7 +33,7 @@ export const SceneAIContent: React.FC = () => {
   return (
     <div className="absolute inset-0 flex items-center justify-center">
       {/* Left text */}
-      <div className="absolute" style={{ left: 100, top: "50%", transform: "translateY(-50%)", width: 440 }}>
+      <div className="absolute" style={{ left: 340, top: "50%", transform: "translateY(-50%)", width: 560 }}>
         {/* Feature number label */}
         <div
           style={{
@@ -101,7 +101,7 @@ export const SceneAIContent: React.FC = () => {
       <div
         className="absolute"
         style={{
-          right: 100,
+          left: 1060,
           top: "50%",
           transform: `translateY(-50%) translateY(${cardY + floatY}px) scale(${cardScale})`,
           opacity: cardOpacity,

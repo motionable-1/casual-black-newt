@@ -67,11 +67,11 @@ export const SceneLinkInBio: React.FC = () => {
       <div
         className="absolute"
         style={{
-          left: 140,
+          left: 440,
           top: "50%",
           transform: `translateY(-50%) translateY(${phoneY + floatY}px) scale(${phoneScale})`,
           opacity: phoneOpacity,
-          width: 320,
+          width: 360,
         }}
       >
         {/* Phone frame */}
@@ -106,7 +106,7 @@ export const SceneLinkInBio: React.FC = () => {
       </div>
 
       {/* Right text content */}
-      <div className="absolute" style={{ right: 100, top: "50%", transform: "translateY(-50%)", width: 500 }}>
+      <div className="absolute" style={{ right: 440, top: "50%", transform: "translateY(-50%)", width: 580 }}>
         {/* Feature label */}
         <div
           style={{

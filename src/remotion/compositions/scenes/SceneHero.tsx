@@ -33,7 +33,7 @@ export const SceneHero: React.FC = () => {
       <Audio src={WHOOSH_URL} volume={0.3} startFrom={0} />
 
       {/* Left content */}
-      <div className="absolute" style={{ left: 100, top: "50%", transform: "translateY(-50%)", width: 620 }}>
+      <div className="absolute" style={{ left: 220, top: "50%", transform: "translateY(-50%)", width: 700 }}>
         {/* Badge */}
         <div
           className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6"
@@ -104,11 +104,11 @@ export const SceneHero: React.FC = () => {
       <div
         className="absolute"
         style={{
-          right: 60,
+          left: 1040,
           top: "50%",
           transform: `translateY(-50%) translateY(${imgY + floatY}px) scale(${imgScale})`,
           opacity: imgOpacity,
-          width: 580,
+          width: 660,
         }}
       >
         <div

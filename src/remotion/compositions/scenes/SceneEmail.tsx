@@ -63,7 +63,7 @@ export const SceneEmail: React.FC = () => {
   return (
     <div className="absolute inset-0 flex items-center justify-center">
       {/* Left text */}
-      <div className="absolute" style={{ left: 100, top: "50%", transform: "translateY(-50%)", width: 460 }}>
+      <div className="absolute" style={{ left: 400, top: "50%", transform: "translateY(-50%)", width: 520 }}>
         <div
           style={{
             opacity: labelOpacity,
@@ -158,7 +158,7 @@ export const SceneEmail: React.FC = () => {
       </div>
 
       {/* Right - Email cards */}
-      <div className="absolute" style={{ right: 120, top: "50%", transform: "translateY(-50%)", width: 420 }}>
+      <div className="absolute" style={{ right: 400, top: "50%", transform: "translateY(-50%)", width: 480 }}>
         {emails.map((email, i) => (
           <EmailCard
             key={i}
