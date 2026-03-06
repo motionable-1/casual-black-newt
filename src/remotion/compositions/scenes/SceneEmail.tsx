@@ -119,7 +119,7 @@ export const SceneEmail: React.FC = () => {
               return tl;
             }}
             startFrom={22}
-            style={{ fontFamily: bodyFont, fontSize: 18, fontWeight: 400, color: "rgba(255,255,255,0.55)", lineHeight: 1.6 }}
+            style={{ fontFamily: bodyFont, fontSize: 20, fontWeight: 400, color: "rgba(255,255,255,0.55)", lineHeight: 1.6 }}
           >
             Drip campaigns, welcome sequences, and built-in Stripe payments — all on autopilot.
           </TextAnimation>

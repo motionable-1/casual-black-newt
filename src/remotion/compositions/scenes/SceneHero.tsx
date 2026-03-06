@@ -93,7 +93,7 @@ export const SceneHero: React.FC = () => {
               return tl;
             }}
             startFrom={30}
-            style={{ fontFamily: bodyFont, fontSize: 22, fontWeight: 400, color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}
+            style={{ fontFamily: bodyFont, fontSize: 24, fontWeight: 400, color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}
           >
             Create, launch, and sell digital products with AI superpowers — zero coding required.
           </TextAnimation>

@@ -163,7 +163,7 @@ export const SceneLinkInBio: React.FC = () => {
               return tl;
             }}
             startFrom={22}
-            style={{ fontFamily: bodyFont, fontSize: 18, fontWeight: 400, color: "rgba(255,255,255,0.55)", lineHeight: 1.6 }}
+            style={{ fontFamily: bodyFont, fontSize: 20, fontWeight: 400, color: "rgba(255,255,255,0.55)", lineHeight: 1.6 }}
           >
             Stunning landing pages with built-in analytics. Track clicks, conversions, and revenue in real-time.
           </TextAnimation>

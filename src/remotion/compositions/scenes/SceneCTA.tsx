@@ -122,7 +122,7 @@ export const SceneCTA: React.FC = () => {
               return tl;
             }}
             startFrom={28}
-            style={{ fontFamily: bodyFont, fontSize: 20, fontWeight: 400, color: "rgba(255,255,255,0.55)", lineHeight: 1.5 }}
+            style={{ fontFamily: bodyFont, fontSize: 22, fontWeight: 400, color: "rgba(255,255,255,0.55)", lineHeight: 1.5 }}
           >
             No coding. No complexity. Just your knowledge turned into revenue.
           </TextAnimation>
@@ -178,10 +178,10 @@ export const SceneCTA: React.FC = () => {
             opacity: interpolate(frame, [65, 75], [0, 1], { extrapolateRight: "clamp", extrapolateLeft: "clamp" }),
           }}
         >
-          <span style={{ fontFamily: headingFont, fontSize: 28, fontWeight: 700, color: "#F56B3D", letterSpacing: "-0.02em" }}>
+          <span style={{ fontFamily: headingFont, fontSize: 36, fontWeight: 700, color: "#F56B3D", letterSpacing: "-0.02em" }}>
             superlinks
           </span>
-          <span style={{ fontFamily: headingFont, fontSize: 28, fontWeight: 700, color: "rgba(255,255,255,0.3)", letterSpacing: "-0.02em" }}>
+          <span style={{ fontFamily: headingFont, fontSize: 36, fontWeight: 700, color: "rgba(255,255,255,0.35)", letterSpacing: "-0.02em" }}>
             .ai
           </span>
         </div>

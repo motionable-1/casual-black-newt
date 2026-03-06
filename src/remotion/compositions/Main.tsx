@@ -20,8 +20,8 @@ const SCENE_HERO = 140;
 const SCENE_AI = 130;
 const SCENE_LINK = 130;
 const SCENE_EMAIL = 130;
-const SCENE_DASHBOARD = 120;
-const SCENE_CTA = 130;
+const SCENE_DASHBOARD = 140;
+const SCENE_CTA = 140;
 const TRANSITION = 15;
 
 // Total = sum(scenes) - sum(transitions)

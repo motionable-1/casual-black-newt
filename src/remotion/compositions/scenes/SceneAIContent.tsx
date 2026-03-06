@@ -90,7 +90,7 @@ export const SceneAIContent: React.FC = () => {
               return tl;
             }}
             startFrom={25}
-            style={{ fontFamily: bodyFont, fontSize: 19, fontWeight: 400, color: "rgba(255,255,255,0.55)", lineHeight: 1.6 }}
+            style={{ fontFamily: bodyFont, fontSize: 21, fontWeight: 400, color: "rgba(255,255,255,0.55)", lineHeight: 1.6 }}
           >
             From course outlines to e-book chapters — AI generates polished content from your knowledge in seconds.
           </TextAnimation>
